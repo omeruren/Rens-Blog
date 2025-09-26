@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RensBlog.Persistance")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+17b261c78ac1ea9f9bf6942f5212599b82bf5c19")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b74c1eaf56b566b77724021a0e622fb69c9b77d4")]
 [assembly: System.Reflection.AssemblyProductAttribute("RensBlog.Persistance")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RensBlog.Persistance")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

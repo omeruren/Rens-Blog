@@ -4,6 +4,7 @@
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>a9106f5f-50b9-4941-b6c7-8d0270bcc7bf</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -16,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Core\RensBlog.Application\RensBlog.Application.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\RensBlog.Persistance\RensBlog.Persistance.csproj" />
   </ItemGroup>
 
 </Project>
