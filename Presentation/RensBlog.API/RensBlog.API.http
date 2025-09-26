@@ -1,0 +1,6 @@
+@RensBlog.API_HostAddress = http://localhost:5132
+
+GET {{RensBlog.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
