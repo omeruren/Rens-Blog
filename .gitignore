@@ -71,6 +71,8 @@ publish/
 # OS generated files
 .DS_Store
 Thumbs.db
+/.vs/RensBlogServer/v17
 /.vs/RensBlogServer/v17/.suo
+/.vs/RensBlogServer/v17/DocumentLayout.json
 /.vs/RensBlogServer/v17/DocumentLayout.json
 /.vs/RensBlogServer/v17/DocumentLayout.backup.json
