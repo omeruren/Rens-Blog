@@ -1,6 +1,7 @@
 using RensBlog.API.Endpoints.Registrations;
 using RensBlog.Application.Extensions;
 using RensBlog.Persistance.Extensions;
+using Scalar.AspNetCore;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,6 +19,7 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.MapScalarApiReference();
 }
 
 app.UseHttpsRedirection();
