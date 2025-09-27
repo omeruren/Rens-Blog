@@ -20,4 +20,8 @@
     <ProjectReference Include="..\..\Infrastructure\RensBlog.Persistance\RensBlog.Persistance.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+
 </Project>
