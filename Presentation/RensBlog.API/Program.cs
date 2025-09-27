@@ -1,3 +1,4 @@
+using RensBlog.API.CustomMiddlewares;
 using RensBlog.API.Endpoints.Registrations;
 using RensBlog.Application.Extensions;
 using RensBlog.Persistance.Extensions;
@@ -21,6 +22,8 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
     app.MapScalarApiReference();
 }
+
+app.UseMiddleware<CustomExceptionHandlingMiddleware>();
 
 app.UseHttpsRedirection();
 
