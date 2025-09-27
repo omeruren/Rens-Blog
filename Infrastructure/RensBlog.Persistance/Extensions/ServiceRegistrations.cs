@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using RensBlog.Application.Contracts.Persistance;
+using RensBlog.Persistance.Concrete;
 using RensBlog.Persistance.Context;
 
 namespace RensBlog.Persistance.Extensions
@@ -13,6 +15,9 @@ namespace RensBlog.Persistance.Extensions
             {
                 options.UseSqlServer(configuration.GetConnectionString("SqlConnection"));
             });
+
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
         }
     }
 }
