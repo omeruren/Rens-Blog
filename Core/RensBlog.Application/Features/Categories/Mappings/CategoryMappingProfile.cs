@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using RensBlog.Application.Features.Categories.Commands;
 using RensBlog.Application.Features.Categories.Results;
 using RensBlog.Domain.Entities;
 
@@ -9,5 +10,6 @@ internal class CategoryMappingProfile : Profile
     public CategoryMappingProfile()
     {
         CreateMap<Category, GetCategoryQueryResult>().ReverseMap();
+        CreateMap<Category, CreateCategoryCommand>().ReverseMap();
     }
 }
