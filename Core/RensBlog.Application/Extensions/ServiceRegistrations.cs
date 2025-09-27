@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using FluentValidation;
+using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
 namespace RensBlog.Application.Extensions;
@@ -11,5 +12,7 @@ public static class ServiceRegistrations
         {
             config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
         });
+
+        services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
     }
 }
