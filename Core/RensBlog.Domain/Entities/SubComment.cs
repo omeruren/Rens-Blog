@@ -5,10 +5,10 @@ namespace RensBlog.Domain.Entities;
 public class SubComment :BaseEntity
 {
     public string UserId { get; set; }
-    public AppUser User { get; set; }
+    public virtual AppUser User { get; set; }
     public string Body { get; set; }
     public DateTime CommentDate { get; set; }
 
     public Guid CommentId { get; set; }
-    public Comment Comment { get; set; }
+    public virtual Comment Comment { get; set; }
 }

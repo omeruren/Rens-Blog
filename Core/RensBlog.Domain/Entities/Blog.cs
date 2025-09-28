@@ -8,9 +8,9 @@ public class Blog : BaseEntity
     public string BlogImage { get; set; }
     public string Description { get; set; }
     public Guid CategoryId { get; set; }
-    public Category Category { get; set; }
+    public virtual Category Category { get; set; }
     public string UserId { get; set; }
-    public AppUser User { get; set; }
+    public virtual AppUser User { get; set; }
 
 }
 

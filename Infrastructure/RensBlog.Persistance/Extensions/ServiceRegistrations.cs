@@ -17,6 +17,7 @@ namespace RensBlog.Persistance.Extensions
             {
                 options.UseSqlServer(configuration.GetConnectionString("SqlConnection"));
                 options.AddInterceptors(new AuditDbContextIntercaptor());
+                options.UseLazyLoadingProxies();
             });
 
             services.AddIdentity<AppUser, AppRole>(options =>
