@@ -6,7 +6,7 @@ namespace RensBlog.Application.Contracts.Persistance;
 public interface IRepository<TEntity> where TEntity : BaseEntity
 {
     Task<List<TEntity>> GetAllAsync();
-    IQueryable GetQueryAsync();
+    IQueryable<TEntity> GetQuery();
     Task<TEntity> GetSingleAsync(Expression<Func<TEntity, bool>> filter);
     Task<TEntity> GetByIdAsync(Guid id);
     Task CrateAsync(TEntity entity);

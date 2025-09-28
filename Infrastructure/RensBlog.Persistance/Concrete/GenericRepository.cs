@@ -29,7 +29,7 @@ public class GenericRepository<TEntity>(AppDbContext _context) : IRepository<TEn
         return await _table.FindAsync(id);
     }
 
-    public IQueryable GetQueryAsync()
+    public IQueryable<TEntity> GetQuery()
     {
         return _table;
     }
