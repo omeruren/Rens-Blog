@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using RensBlog.Application.Features.Blogs.Commands;
 using RensBlog.Application.Features.Blogs.Results;
 using RensBlog.Domain.Entities;
 using System;
@@ -13,6 +14,7 @@ namespace RensBlog.Application.Features.Blogs.Mappings
     {
         public BlogMappingProfile()
         {
+            CreateMap<Blog, CreateBlogCommand>().ReverseMap();
             CreateMap<Blog, GetBlogsQueryResult>().ReverseMap();
         }
     }

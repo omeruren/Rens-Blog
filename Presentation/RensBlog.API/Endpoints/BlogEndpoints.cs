@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using RensBlog.Application.Features.Blogs.Commands;
 using RensBlog.Application.Features.Blogs.Queries;
 
 namespace RensBlog.API.Endpoints
@@ -15,7 +16,18 @@ namespace RensBlog.API.Endpoints
 
                 var response = await mediator.Send(new GetBlogsQuery());
 
-                return response.IsSuccess ? Results.Ok(response) : Results.BadRequest(response);
+                return response.IsSuccess
+                                ? Results.Ok(response)
+                                : Results.BadRequest(response);
+            });
+
+            blogs.MapPost(string.Empty, async (CreateBlogCommand command, IMediator mediator) =>
+            {
+                var response = await mediator.Send(command);
+
+                return response.IsSuccess
+                                ? Results.Ok(response)
+                                : Results.BadRequest(response);
             });
 
         }

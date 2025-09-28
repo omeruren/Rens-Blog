@@ -7,16 +7,16 @@ using RensBlog.Domain.Entities;
 
 namespace RensBlog.Application.Features.Categories.Handlers;
 
-internal class CreateCategoryCommandHandler(IRepository<Category> _repository, IUnitOfWork _unitOfWork, IMapper _mapper) : IRequestHandler<CreateCategoryCommand, BaseResult<bool>>
+public class CreateCategoryCommandHandler(IRepository<Category> _repository, IUnitOfWork _unitOfWork, IMapper _mapper) : IRequestHandler<CreateCategoryCommand, BaseResult<object>>
 {
-    public async Task<BaseResult<bool>> Handle(CreateCategoryCommand request, CancellationToken cancellationToken)
+    public async Task<BaseResult<object>> Handle(CreateCategoryCommand request, CancellationToken cancellationToken)
     {
         var category = _mapper.Map<Category>(request);
 
         await _repository.CrateAsync(category);
 
-        var result = await _unitOfWork.SaveChangesAsync();
+        await _unitOfWork.SaveChangesAsync();
 
-        return result ? BaseResult<bool>.Success(result) : BaseResult<bool>.Fail("Category could not be added");
+        return BaseResult<object>.Success(category);
     }
 }
