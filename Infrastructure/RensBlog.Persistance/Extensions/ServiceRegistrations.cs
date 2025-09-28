@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using RensBlog.Application.Contracts.Persistance;
 using RensBlog.Persistance.Concrete;
 using RensBlog.Persistance.Context;
+using RensBlog.Persistance.Interceptors;
 
 namespace RensBlog.Persistance.Extensions
 {
@@ -14,10 +15,12 @@ namespace RensBlog.Persistance.Extensions
             services.AddDbContext<AppDbContext>(options =>
             {
                 options.UseSqlServer(configuration.GetConnectionString("SqlConnection"));
+                options.AddInterceptors(new AuditDbContextIntercaptor());
             });
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
+
         }
     }
 }
