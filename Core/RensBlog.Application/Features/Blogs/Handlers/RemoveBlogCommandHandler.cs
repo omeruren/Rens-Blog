@@ -23,7 +23,7 @@ namespace RensBlog.Application.Features.Blogs.Handlers
             }
 
             _repository.Delete(blog);
-            _unitOfWork.SaveChangesAsync();
+          await  _unitOfWork.SaveChangesAsync();
             return BaseResult<object>.Success("Blog has been removed successfully");
 
         }
