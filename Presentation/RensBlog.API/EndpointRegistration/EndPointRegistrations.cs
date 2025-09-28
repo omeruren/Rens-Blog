@@ -1,4 +1,8 @@
-﻿namespace RensBlog.API.Endpoints.Registrations
+﻿using RensBlog.Application.Features.Blogs.Endpoints;
+using RensBlog.Application.Features.Categories.Endpoints;
+using RensBlog.Application.Features.Users.Endpoints;
+
+namespace RensBlog.API.EndpointRegistration
 {
     public static class EndPointRegistrations
     {

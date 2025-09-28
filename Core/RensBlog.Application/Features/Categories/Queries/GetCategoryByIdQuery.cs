@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using RensBlog.Application.Base;
-using RensBlog.Application.Features.Categories.Results;
+using RensBlog.Application.Features.Categories.Result;
 
 namespace RensBlog.Application.Features.Categories.Queries;
 

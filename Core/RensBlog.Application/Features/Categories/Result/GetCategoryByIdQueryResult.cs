@@ -1,6 +1,6 @@
 ﻿using RensBlog.Application.Base;
 
-namespace RensBlog.Application.Features.Categories.Results;
+namespace RensBlog.Application.Features.Categories.Result;
 
 public class GetCategoryByIdQueryResult : BaseDto
 {

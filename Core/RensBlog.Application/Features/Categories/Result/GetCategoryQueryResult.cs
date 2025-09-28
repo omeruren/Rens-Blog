@@ -1,7 +1,7 @@
 ﻿using RensBlog.Application.Base;
 using RensBlog.Domain.Entities;
 
-namespace RensBlog.Application.Features.Categories.Results;
+namespace RensBlog.Application.Features.Categories.Result;
 
 public class GetCategoryQueryResult : BaseDto
 {

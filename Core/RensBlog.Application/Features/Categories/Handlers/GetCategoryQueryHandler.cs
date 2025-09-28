@@ -3,7 +3,7 @@ using MediatR;
 using RensBlog.Application.Base;
 using RensBlog.Application.Contracts.Persistance;
 using RensBlog.Application.Features.Categories.Queries;
-using RensBlog.Application.Features.Categories.Results;
+using RensBlog.Application.Features.Categories.Result;
 using RensBlog.Domain.Entities;
 
 namespace RensBlog.Application.Features.Categories.Handlers;

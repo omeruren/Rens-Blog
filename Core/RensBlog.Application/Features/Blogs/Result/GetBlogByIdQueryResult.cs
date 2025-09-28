@@ -1,11 +1,10 @@
 ﻿using RensBlog.Application.Base;
-using RensBlog.Application.Features.Categories.Results;
+using RensBlog.Application.Features.Categories.Result;
 
-namespace RensBlog.Application.Features.Blogs.Results;
+namespace RensBlog.Application.Features.Blogs.Result;
 
-public class GetBlogsByCategoryIdQueryResult 
+public class GetBlogByIdQueryResult : BaseDto
 {
-    public Guid Id { get; set; }
     public string Title { get; set; }
     public string CoverImage { get; set; }
     public string BlogImage { get; set; }

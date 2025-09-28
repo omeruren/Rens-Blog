@@ -1,8 +1,11 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Routing;
 using RensBlog.Application.Features.Blogs.Commands;
 using RensBlog.Application.Features.Blogs.Queries;
 
-namespace RensBlog.API.Endpoints
+namespace RensBlog.Application.Features.Blogs.Endpoints
 {
     public static class BlogEndpoints
     {

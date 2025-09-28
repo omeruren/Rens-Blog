@@ -1,7 +1,10 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Routing;
 using RensBlog.Application.Features.Users.Commands;
 
-namespace RensBlog.API.Endpoints
+namespace RensBlog.Application.Features.Users.Endpoints
 {
     public static class UserEndpoints
     {

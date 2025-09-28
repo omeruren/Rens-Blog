@@ -1,9 +1,10 @@
 ﻿using RensBlog.Application.Base;
-using RensBlog.Application.Features.Categories.Results;
+using RensBlog.Application.Features.Categories.Result;
+using RensBlog.Domain.Entities;
 
-namespace RensBlog.Application.Features.Blogs.Results;
+namespace RensBlog.Application.Features.Blogs.Result;
 
-public class GetBlogByIdQueryResult : BaseDto
+public class GetBlogsQueryResult : BaseDto
 {
     public string Title { get; set; }
     public string CoverImage { get; set; }

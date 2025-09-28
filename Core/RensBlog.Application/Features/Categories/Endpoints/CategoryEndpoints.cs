@@ -1,8 +1,11 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Routing;
 using RensBlog.Application.Features.Categories.Commands;
 using RensBlog.Application.Features.Categories.Queries;
 
-namespace RensBlog.API.Endpoints
+namespace RensBlog.Application.Features.Categories.Endpoints
 {
     public static class CategoryEndpoints
     {

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using RensBlog.Application.Features.Categories.Commands;
-using RensBlog.Application.Features.Categories.Results;
+using RensBlog.Application.Features.Categories.Result;
 using RensBlog.Domain.Entities;
 
 namespace RensBlog.Application.Features.Categories.Mappings;

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using RensBlog.Application.Features.Blogs.Commands;
-using RensBlog.Application.Features.Blogs.Results;
+using RensBlog.Application.Features.Blogs.Result;
 using RensBlog.Domain.Entities;
 using System;
 using System.Collections.Generic;

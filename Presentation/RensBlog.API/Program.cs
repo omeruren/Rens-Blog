@@ -1,5 +1,5 @@
 using RensBlog.API.CustomMiddlewares;
-using RensBlog.API.Endpoints.Registrations;
+using RensBlog.API.EndpointRegistration;
 using RensBlog.Application.Extensions;
 using RensBlog.Persistance.Extensions;
 using Scalar.AspNetCore;
