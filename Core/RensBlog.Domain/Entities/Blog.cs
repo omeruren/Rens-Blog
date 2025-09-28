@@ -12,5 +12,7 @@ public class Blog : BaseEntity
     public string UserId { get; set; }
     public virtual AppUser User { get; set; }
 
+    public virtual IList<Comment> Comments { get; set; }
+
 }
 
