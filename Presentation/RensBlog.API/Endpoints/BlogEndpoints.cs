@@ -3,7 +3,7 @@ using RensBlog.Application.Features.Blogs.Queries;
 
 namespace RensBlog.API.Endpoints
 {
-    public static class BlogEnpoints
+    public static class BlogEndpoints
     {
         public static void RegisterBlogEndpoints(this IEndpointRouteBuilder app)
         {
