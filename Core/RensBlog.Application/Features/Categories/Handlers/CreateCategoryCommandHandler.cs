@@ -17,6 +17,6 @@ internal class CreateCategoryCommandHandler(IRepository<Category> _repository, I
 
         var result = await _unitOfWork.SaveChangesAsync();
 
-        return result ? BaseResult<bool>.Success(result) : BaseResult<bool>.Fail();
+        return result ? BaseResult<bool>.Success(result) : BaseResult<bool>.Fail("Category could not be added");
     }
 }

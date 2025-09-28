@@ -33,7 +33,7 @@ public class AuditDbContextIntercaptor : SaveChangesInterceptor
 
                 continue;
             }
-            if (entry.State is not EntityState.Added and EntityState.Modified)
+            if (entry.State is not EntityState.Added and not EntityState.Modified)
             {
 
                 continue;
