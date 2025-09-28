@@ -15,6 +15,7 @@ namespace RensBlog.Application.Features.Blogs.Mappings
         public BlogMappingProfile()
         {
             CreateMap<Blog, CreateBlogCommand>().ReverseMap();
+            CreateMap<Blog, UpdateBlogCommand>().ReverseMap();
             CreateMap<Blog, GetBlogsQueryResult>().ReverseMap();
             CreateMap<Blog, GetBlogByIdQueryResult>().ReverseMap();
         }
