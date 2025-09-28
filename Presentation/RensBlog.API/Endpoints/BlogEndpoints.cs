@@ -30,6 +30,15 @@ namespace RensBlog.API.Endpoints
                                 : Results.BadRequest(response);
             });
 
+            blogs.MapGet("{id}", async (Guid id, IMediator mediator) =>
+            {
+                var response = await mediator.Send(new GetBlogByIdQuery(id));
+
+                return response.IsSuccess
+                                ? Results.Ok(response)
+                                : Results.BadRequest(response);
+            });
+
         }
     }
 }
