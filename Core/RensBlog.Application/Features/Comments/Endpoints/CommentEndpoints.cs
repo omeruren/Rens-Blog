@@ -46,5 +46,15 @@ public static class CommentEndpoints
                       ? Results.Ok(response)
                       : Results.BadRequest(response);
         });
+
+        comments.MapDelete("{id}", async (Guid id, IMediator mediator) =>
+        {
+
+            var response = await mediator.Send(new RemoveCommentCommand(id));
+            return response.IsSuccess
+                      ? Results.Ok(response)
+                      : Results.BadRequest(response);
+
+        });
     }
 }
