@@ -37,5 +37,14 @@ public static class CommentEndpoints
                          ? Results.Ok(response)
                          : Results.BadRequest(response);
         });
+
+        comments.MapPut(string.Empty, async (UpdateCommentCommand command, IMediator mediator) =>
+        {
+
+            var response = await mediator.Send(command);
+            return response.IsSuccess
+                      ? Results.Ok(response)
+                      : Results.BadRequest(response);
+        });
     }
 }

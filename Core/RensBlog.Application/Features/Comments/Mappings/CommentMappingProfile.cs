@@ -12,5 +12,6 @@ public class CommentMappingProfile: Profile
         CreateMap<Comment, GetCommentsQueryResult>().ReverseMap();
         CreateMap<Comment, GetCommentByIdQueryResult>().ReverseMap();
         CreateMap<Comment, CreateCommentCommand>().ReverseMap();
+        CreateMap<Comment, UpdateCommentCommand>().ReverseMap();
     }
 }
