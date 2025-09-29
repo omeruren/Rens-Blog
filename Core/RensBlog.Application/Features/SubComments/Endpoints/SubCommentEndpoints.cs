@@ -30,5 +30,13 @@ public static class SubCommentEndpoints
                            ? Results.Ok(response)
                            : Results.BadRequest(response);
         });
+
+        subComments.MapGet("{id}", async (Guid id, IMediator mediator) =>
+        {
+            var response = await mediator.Send(new GetSubCommentByIdQuery(id));
+            return response.IsSuccess
+                          ? Results.Ok(response)
+                          : Results.BadRequest(response);
+        });
     }
 }

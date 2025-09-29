@@ -11,5 +11,6 @@ public class SubCommentMappingProfile : Profile
     {
         CreateMap<SubComment, CreateSubCommentCommand>().ReverseMap();
         CreateMap<SubComment, GetSubCommentsQueryResult>().ReverseMap();
+        CreateMap<SubComment, GetSubCommentByIdQueryResult>().ReverseMap();
     }
 }
