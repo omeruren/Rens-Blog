@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
 using RensBlog.Application.Features.SubComments.Commands;
+using RensBlog.Application.Features.SubComments.Queries;
 
 namespace RensBlog.Application.Features.SubComments.Endpoints;
 
@@ -17,9 +18,17 @@ public static class SubCommentEndpoints
 
             var response = await mediator.Send(command);
 
-            return response.IsSuccess 
+            return response.IsSuccess
                             ? Results.Ok(response)
                             : Results.BadRequest(response);
+        });
+
+        subComments.MapGet(string.Empty, async (IMediator mediator) =>
+        {
+            var response = await mediator.Send(new GetSubCommentsQuery());
+            return response.IsSuccess
+                           ? Results.Ok(response)
+                           : Results.BadRequest(response);
         });
     }
 }
