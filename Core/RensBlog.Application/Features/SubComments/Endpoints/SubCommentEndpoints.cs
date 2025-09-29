@@ -46,5 +46,13 @@ public static class SubCommentEndpoints
                            ? Results.Ok(response)
                            : Results.BadRequest(response);
         });
+
+        subComments.MapDelete("{id}", async (Guid id, IMediator mediator) =>
+        {
+            var response = await mediator.Send(new RemoveSubCommentCommand(id));
+            return response.IsSuccess
+                           ? Results.Ok(response)
+                           : Results.BadRequest(response);
+        });
     }
 }
