@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
+using RensBlog.Application.Features.Comments.Commands;
 using RensBlog.Application.Features.Comments.Queries;
 
 namespace RensBlog.Application.Features.Comments.Endpoints;
@@ -20,5 +21,14 @@ public static class CommentEndpoints
                             ? Results.Ok(response)
                             : Results.BadRequest(response);
         });
+
+        comments.MapPost(string.Empty, async (CreateCommentCommand commamnd, IMediator mediator) =>
+        {
+            var response = await mediator.Send(commamnd);
+            return response.IsSuccess
+                           ? Results.Ok(response)
+                           : Results.BadRequest(response);
+        });
+
     }
 }
