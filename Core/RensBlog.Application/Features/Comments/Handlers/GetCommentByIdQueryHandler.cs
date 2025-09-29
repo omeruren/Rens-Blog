@@ -15,7 +15,7 @@ public class GetCommentByIdQueryHandler(IRepository<Comment> _repository, IMappe
         var value = await _repository.GetByIdAsync(request.Id);
         if (value is  null)
         {
-            return BaseResult<GetCommentByIdQueryResult>.NotFound("Comment not found");
+            return BaseResult<GetCommentByIdQueryResult>.Fail("Comment not found");
         }
         var comment = _mapper.Map<GetCommentByIdQueryResult>(value);
         return BaseResult<GetCommentByIdQueryResult>.Success(comment);

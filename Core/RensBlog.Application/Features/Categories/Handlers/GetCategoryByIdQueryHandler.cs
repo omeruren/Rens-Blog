@@ -15,7 +15,7 @@ public class GetCategoryByIdQueryHandler(IRepository<Category> _repository, IMap
         var category = await _repository.GetByIdAsync(request.Id);
 
         if (category == null)
-            return BaseResult<GetCategoryByIdQueryResult>.NotFound("Category Not Found");
+            return BaseResult<GetCategoryByIdQueryResult>.Fail("Category Not Found");
 
 
         var response = _mapper.Map<GetCategoryByIdQueryResult>(category);

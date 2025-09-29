@@ -38,5 +38,13 @@ public static class SubCommentEndpoints
                           ? Results.Ok(response)
                           : Results.BadRequest(response);
         });
+
+        subComments.MapPut(string.Empty, async (UpdateSubCommentCommand command, IMediator mediator) =>
+        {
+            var response = await mediator.Send(command);
+            return response.IsSuccess
+                           ? Results.Ok(response)
+                           : Results.BadRequest(response);
+        });
     }
 }

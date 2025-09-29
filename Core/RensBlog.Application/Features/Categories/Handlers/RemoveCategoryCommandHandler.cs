@@ -14,7 +14,7 @@ public class RemoveCategoryCommandHandler(IRepository<Category> _repository, IUn
 
         if (category == null)
         {
-            return BaseResult<bool>.NotFound("Category not found");
+            return BaseResult<bool>.Fail("Category not found");
         }
         _repository.Delete(category);
         var response = await _unitOfWork.SaveChangesAsync();

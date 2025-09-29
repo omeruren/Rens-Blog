@@ -19,7 +19,7 @@ namespace RensBlog.Application.Features.Blogs.Handlers
 
             if(blog is  null)
             {
-                return BaseResult<object>.NotFound("Blog not found");
+                return BaseResult<object>.Fail("Blog not found");
             }
 
             _repository.Delete(blog);

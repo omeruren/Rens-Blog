@@ -15,7 +15,7 @@ public class GetBlogByIdQueryHandler(IRepository<Blog> _repository, IMapper _map
         var value = await _repository.GetByIdAsync(request.Id);
 
         if (value is null)
-            return BaseResult<GetBlogByIdQueryResult>.NotFound("Blog not found");
+            return BaseResult<GetBlogByIdQueryResult>.Fail("Blog not found");
 
         var blog = _mapper.Map<GetBlogByIdQueryResult>(value);
 

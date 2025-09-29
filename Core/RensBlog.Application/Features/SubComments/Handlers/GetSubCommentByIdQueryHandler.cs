@@ -16,7 +16,7 @@ public class GetSubCommentByIdQueryHandler(IRepository<SubComment> _repository, 
 
         if (value is null)
         {
-            return BaseResult<GetSubCommentByIdQueryResult>.NotFound("SubComment not found");
+            return BaseResult<GetSubCommentByIdQueryResult>.Fail("SubComment not found");
         }
         var subComment = _mapper.Map<GetSubCommentByIdQueryResult>(value);
         return BaseResult<GetSubCommentByIdQueryResult>.Success(subComment);
