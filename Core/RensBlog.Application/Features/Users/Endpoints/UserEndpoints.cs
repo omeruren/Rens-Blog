@@ -17,8 +17,8 @@ namespace RensBlog.Application.Features.Users.Endpoints
                 var response = await mediator.Send(command);
 
                 return response.IsSuccess
-                                ? Results.Ok(response)
-                                : Results.BadRequest(response);
+                                ? Results.Ok(response) // 200 Ok 
+                                : Results.BadRequest(response); // 400 bad requeest
             });
         }
     }
