@@ -4,7 +4,7 @@ using RensBlog.Application.Features.Users.Result;
 
 namespace RensBlog.Application.Features.Comments.Result;
 
-public class GetCommentsQueryResult : BaseDto
+public class GetCommentByIdQueryResult : BaseDto
 {
     public string UserId { get; set; }
     public GetUsersQueryResult User { get; set; }

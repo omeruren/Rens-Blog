@@ -10,6 +10,7 @@ public class CommentMappingProfile: Profile
     public CommentMappingProfile()
     {
         CreateMap<Comment, GetCommentsQueryResult>().ReverseMap();
+        CreateMap<Comment, GetCommentByIdQueryResult>().ReverseMap();
         CreateMap<Comment, CreateCommentCommand>().ReverseMap();
     }
 }

@@ -30,5 +30,12 @@ public static class CommentEndpoints
                            : Results.BadRequest(response);
         });
 
+        comments.MapGet("{id}", async (Guid id, IMediator mediator) =>
+        {
+            var response = await mediator.Send(new GetCommentByIdQuery(id));
+            return response.IsSuccess
+                         ? Results.Ok(response)
+                         : Results.BadRequest(response);
+        });
     }
 }
