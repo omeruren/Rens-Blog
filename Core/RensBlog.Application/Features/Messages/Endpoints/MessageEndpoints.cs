@@ -47,5 +47,13 @@ public static class MessageEndpoints
                             ? Results.Ok(response)
                             : Results.BadRequest(response);
         });
+
+        messages.MapDelete("/{id}", async (IMediator mediator, Guid id) =>
+        {
+            var response = await mediator.Send(new RemoveMessageCommand(id));
+            return response.IsSuccess
+                            ? Results.Ok(response)
+                            : Results.BadRequest(response);
+        });
     }
 }
