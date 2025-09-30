@@ -45,5 +45,13 @@ public static class SocialEndpoints
                             : Results.BadRequest(result);
         });
 
+        socials.MapDelete("/{id}", async (IMediator mediator, Guid id) =>
+        {
+            var result = await mediator.Send(new RemoveSocialCommand(id));
+            return result.IsSuccess
+                            ? Results.Ok(result)
+                            : Results.BadRequest(result);
+        });
+
     }
 }
