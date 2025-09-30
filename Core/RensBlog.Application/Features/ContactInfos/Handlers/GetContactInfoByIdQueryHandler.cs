@@ -12,7 +12,7 @@ public class GetContactInfoByIdQueryHandler(IRepository<ContactInfo> _repository
 {
     public async Task<BaseResult<GetContactInfoByIdQueryResult>> Handle(GetContactInfoByIdQuery request, CancellationToken cancellationToken)
     {
-        var contatcInfo = _repository.GetByIdAsync(request.Id);
+        var contatcInfo = await _repository.GetByIdAsync(request.Id);
 
         if (contatcInfo == null)
         {

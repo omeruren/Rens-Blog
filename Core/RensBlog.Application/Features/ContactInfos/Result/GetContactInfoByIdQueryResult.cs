@@ -11,7 +11,7 @@ namespace RensBlog.Application.Features.ContactInfos.Result
     {
         public string Address { get; set; }
         public string Email { get; set; }
-        public int Phone { get; set; }
+        public string Phone { get; set; }
         public string MapUrl { get; set; }
     }
 }

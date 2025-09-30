@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
+using RensBlog.Application.Features.ContactInfos.Commands;
 using RensBlog.Application.Features.ContactInfos.Queries;
 
 namespace RensBlog.Application.Features.ContactInfos.Endpoints;
@@ -23,6 +24,14 @@ public static class ContactInfoEndpoints
         contatcInfos.MapGet("{id}", async (Guid id, IMediator mediator) =>
         {
             var result = await mediator.Send(new GetContactInfoByIdQuery(id));
+            return result.IsSuccess 
+                            ? Results.Ok(result) 
+                            : Results.BadRequest(result);
+        });
+
+        contatcInfos.MapPost(string.Empty, async (IMediator mediator, CreateContactInfoCommand command) =>
+        {
+            var result = await mediator.Send(command);
             return result.IsSuccess 
                             ? Results.Ok(result) 
                             : Results.BadRequest(result);
