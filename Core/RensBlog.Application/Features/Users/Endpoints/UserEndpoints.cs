@@ -11,7 +11,8 @@ namespace RensBlog.Application.Features.Users.Endpoints
     {
         public static void RegisterUserEndPoints(this IEndpointRouteBuilder app)
         {
-            var users = app.MapGroup("/users").WithTags("Users");
+            var users = app.MapGroup("/users").WithTags("Users")
+                .AllowAnonymous(); // All endpoints in this group allow anonymous access
 
             users.MapPost("register", async (IMediator mediator, CreateUserCommand command) =>
             {

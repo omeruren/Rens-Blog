@@ -11,7 +11,8 @@ namespace RensBlog.Application.Features.Blogs.Endpoints
     {
         public static void RegisterBlogEndpoints(this IEndpointRouteBuilder app)
         {
-            var blogs = app.MapGroup("/blogs").WithTags("Blogs");
+            var blogs = app.MapGroup("/blogs").WithTags("Blogs")
+                .RequireAuthorization(); // All endpoints in this group require authorization
 
 
             blogs.MapGet(string.Empty, async (IMediator mediator) =>
@@ -22,7 +23,7 @@ namespace RensBlog.Application.Features.Blogs.Endpoints
                 return response.IsSuccess
                                 ? Results.Ok(response)
                                 : Results.BadRequest(response);
-            });
+            }).RequireAuthorization(); // endpoint based authorization
 
             blogs.MapPost(string.Empty, async (CreateBlogCommand command, IMediator mediator) =>
             {
