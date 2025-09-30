@@ -19,6 +19,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Features\ContactInfos\Commands\" />
+    <Folder Include="Features\ContactInfos\Validators\" />
     <Folder Include="Features\Users\Queries\" />
   </ItemGroup>
 
