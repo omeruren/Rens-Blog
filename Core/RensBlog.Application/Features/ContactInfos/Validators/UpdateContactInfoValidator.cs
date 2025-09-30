@@ -3,9 +3,9 @@ using RensBlog.Application.Features.ContactInfos.Commands;
 
 namespace RensBlog.Application.Features.ContactInfos.Validators;
 
-public class CreateContactInfoValidator : AbstractValidator<CreateContactInfoCommand>
+public class UpdateContactInfoValidator : AbstractValidator<UpdateContactInfoCommand>
 {
-    public CreateContactInfoValidator()
+    public UpdateContactInfoValidator()
     {
         RuleFor(x => x.Address)
             .NotEmpty().WithMessage("Address is required.")
@@ -21,5 +21,6 @@ public class CreateContactInfoValidator : AbstractValidator<CreateContactInfoCom
 
             .NotEmpty().WithMessage("Map URL is required.")
             .Must(url => Uri.IsWellFormedUriString(url, UriKind.Absolute)).WithMessage("Invalid Map Url format");
+
     }
 }

@@ -36,6 +36,14 @@ public static class ContactInfoEndpoints
                             ? Results.Ok(result) 
                             : Results.BadRequest(result);
         });
+
+        contatcInfos.MapPut(string.Empty, async (IMediator mediator, UpdateContactInfoCommand command) =>
+        {
+            var result = await mediator.Send(command);
+            return result.IsSuccess 
+                            ? Results.Ok(result) 
+                            : Results.BadRequest(result);
+        });
     }
 
 }
