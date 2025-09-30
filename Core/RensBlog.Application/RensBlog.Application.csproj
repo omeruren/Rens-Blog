@@ -19,6 +19,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Features\Messages\Queries\" />
+    <Folder Include="Features\Messages\Result\" />
     <Folder Include="Features\Users\Queries\" />
   </ItemGroup>
 

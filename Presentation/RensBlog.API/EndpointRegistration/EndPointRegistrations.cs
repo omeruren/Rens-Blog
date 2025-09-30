@@ -2,6 +2,7 @@
 using RensBlog.Application.Features.Categories.Endpoints;
 using RensBlog.Application.Features.Comments.Endpoints;
 using RensBlog.Application.Features.ContactInfos.Endpoints;
+using RensBlog.Application.Features.Messages.Endpoints;
 using RensBlog.Application.Features.SubComments.Endpoints;
 using RensBlog.Application.Features.Users.Endpoints;
 
@@ -17,6 +18,7 @@ namespace RensBlog.API.EndpointRegistration
             app.RegisterCommentEndpoints();
             app.RegisterSubCommentEndpoints();
             app.RegisterContactInfoEndpoints();
+            app.RegisterMessageEndpoints();
         }
     }
 }
