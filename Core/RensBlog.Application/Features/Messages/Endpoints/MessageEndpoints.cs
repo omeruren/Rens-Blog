@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
 using RensBlog.Application.Features.Messages.Commands;
+using RensBlog.Application.Features.Messages.Queries;
 
 namespace RensBlog.Application.Features.Messages.Endpoints;
 
@@ -20,6 +21,14 @@ public static class MessageEndpoints
                             ? Results.Ok(result) 
                             : Results.BadRequest(result);  
 
+        });
+
+        messages.MapGet(string.Empty, async (IMediator mediator) =>
+        {
+            var response = await mediator.Send(new GetMessagesQuery());
+            return response.IsSuccess
+                            ? Results.Ok(response)
+                            : Results.BadRequest(response);
         });
 
     }
