@@ -19,8 +19,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Socials\Result\" />
-    <Folder Include="Features\Socials\Queries\" />
     <Folder Include="Features\Users\Queries\" />
   </ItemGroup>
 
