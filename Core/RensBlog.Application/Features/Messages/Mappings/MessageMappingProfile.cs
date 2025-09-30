@@ -10,6 +10,7 @@ public class MessageMappingProfile : Profile
     public MessageMappingProfile()
     {
         CreateMap<Message, CreateMessageCommand>().ReverseMap();
-        CreateMap<Message, GetMessagesQueryresult>().ReverseMap();
+        CreateMap<Message, GetMessagesQueryResult>().ReverseMap();
+        CreateMap<Message, GetMessageByIdQueryResult>().ReverseMap();
     }
 }

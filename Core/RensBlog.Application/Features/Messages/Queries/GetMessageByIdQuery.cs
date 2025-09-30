@@ -4,5 +4,4 @@ using RensBlog.Application.Features.Messages.Result;
 
 namespace RensBlog.Application.Features.Messages.Queries;
 
-public record GetMessagesQuery : IRequest<BaseResult<List<GetMessagesQueryResult>>>;
-
+public record class GetMessageByIdQuery(Guid Id) : IRequest<BaseResult<GetMessageByIdQueryResult>>;

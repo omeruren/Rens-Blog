@@ -31,5 +31,12 @@ public static class MessageEndpoints
                             : Results.BadRequest(response);
         });
 
+        messages.MapGet("/{id}", async (IMediator mediator, Guid id) =>
+        {
+            var response = await mediator.Send(new GetMessageByIdQuery(id));
+            return response.IsSuccess
+                            ? Results.Ok(response)
+                            : Results.BadRequest(response);
+        });
     }
 }

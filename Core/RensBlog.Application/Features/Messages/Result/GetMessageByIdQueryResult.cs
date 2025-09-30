@@ -2,7 +2,7 @@
 
 namespace RensBlog.Application.Features.Messages.Result;
 
-public class GetMessagesQueryResult : BaseDto
+public class GetMessageByIdQueryResult : BaseDto
 {
     public string Name { get; set; }
     public string Email { get; set; }

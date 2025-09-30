@@ -8,12 +8,12 @@ using RensBlog.Domain.Entities;
 
 namespace RensBlog.Application.Features.Messages.Handlers;
 
-public class GetMessagesQueryHandler(IRepository<Message> _repository, IMapper _mapper) : IRequestHandler<GetMessagesQuery, BaseResult<List<GetMessagesQueryresult>>>
+public class GetMessagesQueryHandler(IRepository<Message> _repository, IMapper _mapper) : IRequestHandler<GetMessagesQuery, BaseResult<List<GetMessagesQueryResult>>>
 {
-    public async Task<BaseResult<List<GetMessagesQueryresult>>> Handle(GetMessagesQuery request, CancellationToken cancellationToken)
+    public async Task<BaseResult<List<GetMessagesQueryResult>>> Handle(GetMessagesQuery request, CancellationToken cancellationToken)
     {
         var messages = await _repository.GetAllAsync();
-        var result = _mapper.Map<List<GetMessagesQueryresult>>(messages);
-        return BaseResult<List<GetMessagesQueryresult>>.Success(result);
+        var result = _mapper.Map<List<GetMessagesQueryResult>>(messages);
+        return BaseResult<List<GetMessagesQueryResult>>.Success(result);
     }
 }
