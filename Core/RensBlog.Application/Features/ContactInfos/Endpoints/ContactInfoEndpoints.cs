@@ -44,6 +44,14 @@ public static class ContactInfoEndpoints
                             ? Results.Ok(result) 
                             : Results.BadRequest(result);
         });
+
+        contatcInfos.MapDelete("{id}", async (Guid id, IMediator mediator) =>
+        {
+            var result = await mediator.Send(new RemoveContatcInfoCommand(id));
+            return result.IsSuccess 
+                            ? Results.Ok(result) 
+                            : Results.BadRequest(result);
+        });
     }
 
 }
