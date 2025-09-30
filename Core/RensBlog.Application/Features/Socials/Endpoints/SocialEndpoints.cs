@@ -37,5 +37,13 @@ public static class SocialEndpoints
                             : Results.BadRequest(result);
         });
 
+        socials.MapPut(string.Empty, async (IMediator mediator, UpdateSocialCommand command) =>
+        {
+            var result = await mediator.Send(command);
+            return result.IsSuccess
+                            ? Results.Ok(result)
+                            : Results.BadRequest(result);
+        });
+
     }
 }
