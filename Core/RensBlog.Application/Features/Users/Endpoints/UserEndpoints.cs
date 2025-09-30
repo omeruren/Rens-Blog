@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
 using RensBlog.Application.Features.Users.Commands;
+using RensBlog.Application.Features.Users.Queries;
 
 namespace RensBlog.Application.Features.Users.Endpoints
 {
@@ -19,6 +20,14 @@ namespace RensBlog.Application.Features.Users.Endpoints
                 return response.IsSuccess
                                 ? Results.Ok(response) // 200 Ok 
                                 : Results.BadRequest(response); // 400 bad requeest
+            });
+
+            users.MapPost("login", async (IMediator mediator, GetLoginQuery query) =>
+            {
+                var response = await mediator.Send(query);
+                return response.IsSuccess
+                                ? Results.Ok(response)
+                                : Results.BadRequest(response); 
             });
         }
     }

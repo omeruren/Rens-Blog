@@ -8,7 +8,7 @@ using Scalar.AspNetCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddApplication(); // Application Services
+builder.Services.AddApplication(builder.Configuration); // Application Services
 builder.Services.AddPersistance(builder.Configuration); // Persistance Services
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
@@ -27,6 +27,7 @@ app.UseMiddleware<CustomExceptionHandlingMiddleware>();
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
