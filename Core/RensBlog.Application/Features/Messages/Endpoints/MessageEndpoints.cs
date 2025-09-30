@@ -38,5 +38,14 @@ public static class MessageEndpoints
                             ? Results.Ok(response)
                             : Results.BadRequest(response);
         });
+
+        messages.MapPut(string.Empty, async (IMediator mediator,UpdateMessageCommand command) =>
+        {
+            
+            var response = await mediator.Send(command);
+            return response.IsSuccess
+                            ? Results.Ok(response)
+                            : Results.BadRequest(response);
+        });
     }
 }
