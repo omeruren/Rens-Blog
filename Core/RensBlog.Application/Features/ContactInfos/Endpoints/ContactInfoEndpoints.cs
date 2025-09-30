@@ -19,6 +19,14 @@ public static class ContactInfoEndpoints
                             ? Results.Ok(result) 
                             : Results.BadRequest(result);
         });
+
+        contatcInfos.MapGet("{id}", async (Guid id, IMediator mediator) =>
+        {
+            var result = await mediator.Send(new GetContactInfoByIdQuery(id));
+            return result.IsSuccess 
+                            ? Results.Ok(result) 
+                            : Results.BadRequest(result);
+        });
     }
 
 }

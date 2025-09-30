@@ -14,5 +14,7 @@ public class ContactInfoMappingProfile : Profile
     public ContactInfoMappingProfile()
     {
         CreateMap<ContactInfo, GetContactInfosQueryResult>().ReverseMap();
+        CreateMap<ContactInfo, GetContactInfoByIdQueryResult>().ReverseMap();
+
     }
 }
