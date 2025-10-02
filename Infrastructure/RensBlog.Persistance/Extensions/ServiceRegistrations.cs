@@ -58,6 +58,16 @@ namespace RensBlog.Persistance.Extensions
 
                 };
             });
+            services.AddCors(opt =>
+            {
+                opt.AddDefaultPolicy(cfg =>
+                {
+                    cfg.WithOrigins("http://localhost:4200")
+                    .AllowAnyHeader()
+                    .AllowAnyMethod()
+                    .AllowCredentials();
+                });
+            });
         }
     }
 }
