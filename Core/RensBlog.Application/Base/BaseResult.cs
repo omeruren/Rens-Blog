@@ -6,7 +6,7 @@ namespace RensBlog.Application.Base;
 public class BaseResult<T>
 {
     public T? Data { get; set; }
-    public IEnumerable<Error>? Errors { get; set; }
+    public IEnumerable<object>? Errors { get; set; }
     [JsonIgnore]
     public bool IsSuccess => Errors == null || !Errors.Any();
     [JsonIgnore]
@@ -39,7 +39,7 @@ public class BaseResult<T>
     {
         return new BaseResult<T>
         {
-            Errors = (from error in errors select new Error { PropertyNme = error.Code, ErrorMessage = error.Description })
+            Errors = (from error in errors select new Error { PropertyName = error.Code, ErrorMessage = error.Description })
         };
     }
     public static BaseResult<T> Fail(IEnumerable<string> errors)
@@ -64,7 +64,7 @@ public class BaseResult<T>
 
 public class Error
 {
-    public string? PropertyNme { get; set; }
+    public string? PropertyName { get; set; }
     public string ErrorMessage { get; set; }
 
 }

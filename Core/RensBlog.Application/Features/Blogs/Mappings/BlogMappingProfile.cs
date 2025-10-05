@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using RensBlog.Application.Features.Blogs.Commands;
+using RensBlog.Application.Features.Blogs.Handlers;
 using RensBlog.Application.Features.Blogs.Result;
 using RensBlog.Domain.Entities;
 using System;
@@ -19,6 +20,7 @@ namespace RensBlog.Application.Features.Blogs.Mappings
             CreateMap<Blog, GetBlogsQueryResult>().ReverseMap();
             CreateMap<Blog, GetBlogByIdQueryResult>().ReverseMap();
             CreateMap<Blog, GetBlogsByCategoryIdQueryResult>().ReverseMap();
+            CreateMap<Blog, GetLatest5BlogsQueryResult>().ReverseMap();
         }
     }
 }

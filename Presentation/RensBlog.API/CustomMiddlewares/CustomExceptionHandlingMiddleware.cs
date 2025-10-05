@@ -20,10 +20,12 @@ namespace RensBlog.API.CustomMiddlewares
 
                 var response = new BaseResult<object>()
                 {
-                    Errors = e.Errors.GroupBy(x => x.PropertyName).Select(x => new Error()
+                    Errors = e.Errors.GroupBy(x => x.PropertyName).Select(group => new Dictionary<string, string>
                     {
-                        PropertyNme = x.Key,
-                        ErrorMessage = x.Select(x => x.ErrorMessage).FirstOrDefault()
+                        {
+                            group.Key,
+                            group.Select(x=>x.ErrorMessage).FirstOrDefault()
+                        }
                     }).ToList()
                 };
 

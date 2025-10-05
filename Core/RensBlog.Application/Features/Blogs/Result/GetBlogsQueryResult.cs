@@ -1,5 +1,7 @@
 ﻿using RensBlog.Application.Base;
 using RensBlog.Application.Features.Categories.Result;
+using RensBlog.Application.Features.Comments.Result;
+using RensBlog.Application.Features.Users.Result;
 using RensBlog.Domain.Entities;
 
 namespace RensBlog.Application.Features.Blogs.Result;
@@ -13,7 +15,8 @@ public class GetBlogsQueryResult : BaseDto
     public Guid CategoryId { get; set; }
     public GetCategoryQueryResult Category { get; set; }
     public string UserId { get; set; }
-    //public AppUser User { get; set; }
+    
+    public GetUsersQueryResult User { get; set; }
 
-    //public IList<Comment> Comments { get; set; }
+    public IList<GetCommentsQueryResult> Comments { get; set; }
 }

@@ -35,7 +35,7 @@ app.UseAuthorization();
 
 app.MapControllers();
 app.MapGroup("/api")
-    .RequireAuthorization() // Require authorization for all endpoints under /api
+  //  .RequireAuthorization() // Require authorization for all endpoints under /api
     .RegisterEndPoints();
 
 app.Run();
