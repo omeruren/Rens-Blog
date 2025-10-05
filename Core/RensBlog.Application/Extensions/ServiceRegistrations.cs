@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using RensBlog.Application.Behaviors;
 using RensBlog.Application.Options;
 using System.Reflection;
+using System.Text.Json.Serialization;
 
 namespace RensBlog.Application.Extensions;
 public static class ServiceRegistrations
@@ -20,5 +21,11 @@ public static class ServiceRegistrations
         services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
 
         services.Configure<JwtTokenOptions>(configuration.GetSection(nameof(JwtTokenOptions)));
+
+        // Ignore cycle in minimal API
+        services.ConfigureHttpJsonOptions(cfg =>
+        {
+            cfg.SerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+        });
     }
 }

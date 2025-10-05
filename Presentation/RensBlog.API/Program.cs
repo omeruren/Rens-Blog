@@ -3,6 +3,7 @@ using RensBlog.API.EndpointRegistration;
 using RensBlog.Application.Extensions;
 using RensBlog.Persistance.Extensions;
 using Scalar.AspNetCore;
+using System.Text.Json.Serialization;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,7 +14,15 @@ builder.Services.AddPersistance(builder.Configuration); // Persistance Services
 
 
 
-builder.Services.AddControllers();
+// Ignore cycle JsonSerializer Options
+builder.Services.AddControllers()
+    //.AddJsonOptions(cfg =>{cfg.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;})
+    ;
+
+
+
+
+
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
