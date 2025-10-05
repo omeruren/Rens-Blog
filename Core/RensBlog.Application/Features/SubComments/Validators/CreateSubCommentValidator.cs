@@ -12,9 +12,6 @@ namespace RensBlog.Application.Features.SubComments.Validators
     {
         public CreateSubCommentValidator()
         {
-            RuleFor(x => x.UserId)
-                .NotEmpty()
-                .WithMessage("User Id can not be empty");
             RuleFor(x => x.CommentId)
                 .NotEmpty()
                 .WithMessage("Comment Id can not be empty");
@@ -25,6 +22,15 @@ namespace RensBlog.Application.Features.SubComments.Validators
                 .WithMessage("Comment can be maximum 300 characters")
                 .MinimumLength(3)
                 .WithMessage("Comment must be at least 3 characters");
+            RuleFor(x => x.FirstName)
+          .NotEmpty()
+          .WithMessage("First Name is can not be empty");
+            RuleFor(x => x.LastName)
+                .NotEmpty()
+                .WithMessage("Last Name is can not be empty");
+            RuleFor(x => x.Email)
+                .NotEmpty()
+                .WithMessage("Email is can not be empty");
         }
     }
 }

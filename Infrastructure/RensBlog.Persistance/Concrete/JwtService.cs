@@ -25,7 +25,7 @@ public class JwtService(UserManager<AppUser> _userManager, IOptions<JwtTokenOpti
         {
             new (JwtRegisteredClaimNames.Name, user.UserName),
             new (JwtRegisteredClaimNames.Sub, user.Id),
-            new (JwtRegisteredClaimNames.Sub, user.Email),
+            new (JwtRegisteredClaimNames.Email, user.Email),
             new ("fullName", string.Join(" ", user.FirstName, user.LastName))
         };
 

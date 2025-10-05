@@ -19,5 +19,16 @@ public class UpdateCommentValidator : AbstractValidator<UpdateCommentCommand>
         RuleFor(x => x.Body)
             .NotEmpty()
             .WithMessage("Message body is can not be empty");
+        RuleFor(x => x.FirstName)
+           .NotEmpty()
+           .WithMessage("First Name is can not be empty");
+        RuleFor(x => x.LastName)
+            .NotEmpty()
+            .WithMessage("Last Name is can not be empty");
+        RuleFor(x => x.Email)
+            .NotEmpty()
+            .WithMessage("Email is can not be empty");
     }
+
+
 }
