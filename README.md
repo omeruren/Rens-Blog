@@ -48,11 +48,15 @@ Bu sayede:
 
 Örnek:
 ```csharp
-app.MapPost("/api/posts", async (CreatePostCommand command, ISender sender) =>
-{
-    var result = await sender.Send(command);
-    return Results.Ok(result);
-});
+ blogs.MapGet(string.Empty, async (IMediator mediator) =>
+            {
+
+                var response = await mediator.Send(new GetBlogsQuery());
+
+                return response.IsSuccess
+                                ? Results.Ok(response)
+                                : Results.BadRequest(response);
+            }).AllowAnonymous();//.RequireAuthorization(); // endpoint based authorization
 ```
 
 
