@@ -53,7 +53,7 @@ app.MapPost("/api/posts", async (CreatePostCommand command, ISender sender) =>
     var result = await sender.Send(command);
     return Results.Ok(result);
 });
-
+```
 
 
 #### 🗄️ Entity Framework Core
