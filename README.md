@@ -20,18 +20,41 @@ Katmanlı mimari yaklaşımıyla kodunuzu;
 - **bakımı kolay,**
 - **bağımlılıklardan arındırılmış**
 hale getiriyoruz.  
-Spagetti koda veda edin! 🍝
+
+
+#### ⚔️ CQRS (Command Query Responsibility Segregation)
+**Okuma (Query)** ve **yazma (Command)** işlemleri birbirinden ayrılarak daha temiz, performanslı ve ölçeklenebilir bir yapı elde edilir.  
+Her işlem kendi **Handler**’ı tarafından yönetilir:
+
+- Komutlar: `CreatePostCommand`, `UpdateUserCommand`  
+- Sorgular: `GetAllPostsQuery`, `GetPostByIdQuery`  
+
+Bu sayede:
+- Karmaşıklık azalır  
+- Test edilebilirlik artar  
+- Performans iyileşir
 
 #### 🧭 Mediator Design Pattern (MediatR)
-Uygulama içi iletişimi **komut (Command)** ve **sorgu (Query)** mantığıyla yönetin.  
-**MediatR** kütüphanesiyle, controller’larınızın karmaşasını azaltın, kodunuzu sadeleştirin.
+Uygulama içi iletişimi düzenlemek için **MediatR** kütüphanesi kullanılmıştır.  
+Tüm istekler **Command** veya **Query** olarak tanımlanır ve ilgili **Handler** tarafından ele alınır.  
+Bu, controller’ların karmaşıklığını ortadan kaldırır ve **tek sorumluluk ilkesini** korur.
 
-#### 🌐 RESTful API Geliştirme
-Modern standartlara uygun, güvenli ve hızlı **API endpoint’leri** oluşturuyoruz:
-- CRUD operasyonları  
-- Global exception handling  
-- Validation ve response modelleri  
-- Logging ve middleware kullanımı  
+#### ⚙️ Minimal API ile Controller’sız Mimari
+Proje geleneksel controller yapısı yerine **.NET 9 Minimal API** yaklaşımını benimser.  
+Bu sayede:
+- **Daha az kod** ile **daha sade** endpoint tanımları yapılır  
+- Performans artar  
+- Gereksiz abstraction ortadan kalkar  
+
+Örnek:
+```csharp
+app.MapPost("/api/posts", async (CreatePostCommand command, ISender sender) =>
+{
+    var result = await sender.Send(command);
+    return Results.Ok(result);
+});
+
+
 
 #### 🗄️ Entity Framework Core
 Veritabanı işlemlerinde profesyonel seviye kontrol:  
