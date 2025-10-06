@@ -27,7 +27,7 @@ public static class SocialEndpoints
             return result.IsSuccess
                             ? Results.Ok(result)
                             : Results.BadRequest(result);
-        });
+        }).AllowAnonymous();
 
         socials.MapGet("/{id}", async (IMediator mediator, Guid id) =>
         {

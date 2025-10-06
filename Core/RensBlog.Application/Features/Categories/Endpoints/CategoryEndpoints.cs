@@ -20,7 +20,7 @@ namespace RensBlog.Application.Features.Categories.Endpoints
                 return response.IsSuccess
                             ? Results.Ok(response)
                             : Results.BadRequest(response);
-            });
+            }).AllowAnonymous();
 
 
             categories.MapPost(string.Empty, async (CreateCategoryCommand command, IMediator mediator) =>

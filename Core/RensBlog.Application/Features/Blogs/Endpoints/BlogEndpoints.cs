@@ -23,7 +23,7 @@ namespace RensBlog.Application.Features.Blogs.Endpoints
                 return response.IsSuccess
                                 ? Results.Ok(response)
                                 : Results.BadRequest(response);
-            });//.RequireAuthorization(); // endpoint based authorization
+            }).AllowAnonymous();//.RequireAuthorization(); // endpoint based authorization
 
             blogs.MapPost(string.Empty, async (CreateBlogCommand command, IMediator mediator) =>
             {
@@ -41,7 +41,7 @@ namespace RensBlog.Application.Features.Blogs.Endpoints
                 return response.IsSuccess
                                 ? Results.Ok(response)
                                 : Results.BadRequest(response);
-            });
+            }).AllowAnonymous();
 
             blogs.MapPut(string.Empty, async (UpdateBlogCommand command, IMediator mediator) =>
             {
@@ -67,7 +67,7 @@ namespace RensBlog.Application.Features.Blogs.Endpoints
                 return response.IsSuccess
                                  ? Results.Ok(response)
                                  : Results.BadRequest(response);
-            });
+            }).AllowAnonymous();
 
             blogs.MapGet("Latest5Blogs", async (IMediator mediator) =>
             {
@@ -75,7 +75,7 @@ namespace RensBlog.Application.Features.Blogs.Endpoints
                 return response.IsSuccess
                                 ? Results.Ok(response)
                                 : Results.BadRequest(response);
-            });
+            }).AllowAnonymous();
 
         }
     }

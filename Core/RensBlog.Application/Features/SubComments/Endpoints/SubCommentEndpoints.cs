@@ -21,7 +21,7 @@ public static class SubCommentEndpoints
             return response.IsSuccess
                             ? Results.Ok(response)
                             : Results.BadRequest(response);
-        });
+        }).AllowAnonymous();
 
         subComments.MapGet(string.Empty, async (IMediator mediator) =>
         {

@@ -19,7 +19,7 @@ public static class ContactInfoEndpoints
             return result.IsSuccess 
                             ? Results.Ok(result) 
                             : Results.BadRequest(result);
-        });
+        }).AllowAnonymous();
 
         contatcInfos.MapGet("{id}", async (Guid id, IMediator mediator) =>
         {

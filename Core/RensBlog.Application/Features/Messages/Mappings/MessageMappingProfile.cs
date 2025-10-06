@@ -13,5 +13,7 @@ public class MessageMappingProfile : Profile
         CreateMap<Message, UpdateMessageCommand>().ReverseMap();
         CreateMap<Message, GetMessagesQueryResult>().ReverseMap();
         CreateMap<Message, GetMessageByIdQueryResult>().ReverseMap();
+        CreateMap<Message, GetUnSeenMessagesQueryResult>().ReverseMap();
+        CreateMap<Message, GetSeenMessagesQueryResult>().ReverseMap();
     }
 }

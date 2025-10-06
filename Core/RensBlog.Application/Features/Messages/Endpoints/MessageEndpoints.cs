@@ -21,11 +21,25 @@ public static class MessageEndpoints
                             ? Results.Ok(result) 
                             : Results.BadRequest(result);  
 
-        });
+        }).AllowAnonymous();
 
         messages.MapGet(string.Empty, async (IMediator mediator) =>
         {
             var response = await mediator.Send(new GetMessagesQuery());
+            return response.IsSuccess
+                            ? Results.Ok(response)
+                            : Results.BadRequest(response);
+        });
+        messages.MapGet("Unread", async (IMediator mediator) =>
+        {
+            var response = await mediator.Send(new GetUnSeenMessagesQuery());
+            return response.IsSuccess
+                            ? Results.Ok(response)
+                            : Results.BadRequest(response);
+        });
+        messages.MapGet("Read", async (IMediator mediator) =>
+        {
+            var response = await mediator.Send(new GetSeenMessagesQuery());
             return response.IsSuccess
                             ? Results.Ok(response)
                             : Results.BadRequest(response);
